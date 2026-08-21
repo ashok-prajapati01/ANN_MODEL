@@ -1,11 +1,12 @@
 import os
 import pickle
 import numpy as np
+import keras
 from flask import Flask, render_template_string, request, jsonify
 
 app = Flask(__name__)
 
-# Load model safely using pickle
+# Load model safely
 MODEL_PATH = "ANN_model.pkl"
 model = None
 
@@ -13,9 +14,9 @@ if os.path.exists(MODEL_PATH):
     try:
         with open(MODEL_PATH, "rb") as f:
             model = pickle.load(f)
-        print("Model loaded successfully.")
+        print("Model loaded successfully via pickle.")
     except Exception as e:
-        print(f"Error loading model: {e}")
+        print(f"Error loading model via pickle: {e}")
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>
