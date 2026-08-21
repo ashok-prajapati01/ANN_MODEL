@@ -1,6 +1,4 @@
 Flask
 gunicorn
-tensorflow-cpu
 keras
 numpy
-h5py
